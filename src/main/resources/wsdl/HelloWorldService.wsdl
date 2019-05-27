@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="HelloWorldService"
+	xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://xog.ch/jaxws/hello/v1" 
+	targetNamespace="http://xog.ch/jaxws/hello/v1">
+
+	<types>
+		<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns="http://xog.ch/jaxws/hello/v1" targetNamespace="http://xog.ch/jaxws/hello/v1">
+			<xs:include schemaLocation="HelloWorldServiceTypes.xsd"/>
+		</xs:schema>
+	</types>
+
+	<message name="helloRequest">
+		<part element="tns:HelloRequest" name="parameters"/>
+	</message>
+	<message name="helloResponse">
+		<part element="tns:HelloResponse" name="parameters"/>
+	</message>
+
+	<message name="HelloServiceException">
+		<part element="tns:HelloServiceException" name="helloServiceExceptionFault"/>
+	</message>
+
+	<portType name="HelloServicePortType">
+		<operation name="helloRequest">
+			<input message="tns:helloRequest"/>
+			<output message="tns:helloResponse"/>
+			<fault name="helloServiceExceptionFault" message="tns:HelloServiceException"/>
+		</operation>
+		
+	</portType>
+
+	<binding name="HelloServiceHTTPBinding" type="tns:HelloServicePortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="helloRequest">
+			<soap:operation soapAction="helloRequest" style="document"/>
+			<input> 
+				<soap:body use="literal"/>
+			</input>
+			<output> 
+				<soap:body use="literal"/>
+			</output>
+			<fault name="helloServiceExceptionFault">
+				<soap:fault name="helloServiceExceptionFault" use="literal"/>
+			</fault>
+		</operation>
+	
+	</binding>
+
+	<service name="HelloService">
+		<port name="HelloServicePortType" binding="tns:HelloServiceHTTPBinding">
+			<soap:address location="http://localhost/HelloService?WSDL" />
+		</port>
+	</service>	
+</definitions>

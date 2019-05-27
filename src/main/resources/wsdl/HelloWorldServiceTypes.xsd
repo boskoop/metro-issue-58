@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xog.ch/jaxws/hello/v1" xmlns="http://xog.ch/jaxws/hello/v1"
+	targetNamespace="http://xog.ch/jaxws/hello/v1" elementFormDefault="qualified">
+	<xs:element name="HelloRequest" type="tns:HelloRequest"/>
+	<xs:complexType name="HelloRequest">
+		<xs:sequence>
+			<xs:element name="firstName" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="HelloResponse" type="tns:HelloResponse"/>
+	<xs:complexType name="HelloResponse">
+		<xs:sequence>
+			<xs:element name="greeting" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="HelloServiceException" type="tns:HelloServiceException"/>
+	<xs:complexType name="HelloServiceException">
+		<xs:sequence>
+			<xs:element name="ErrorText">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1" />
+						<xs:maxLength value="256" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
