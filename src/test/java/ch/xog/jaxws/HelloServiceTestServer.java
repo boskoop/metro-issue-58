@@ -7,9 +7,9 @@ import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.xml.ws.Endpoint;
-import javax.xml.ws.Service;
-import javax.xml.ws.handler.Handler;
+import jakarta.xml.ws.Endpoint;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.handler.Handler;
 
 import org.junit.rules.ExternalResource;
 

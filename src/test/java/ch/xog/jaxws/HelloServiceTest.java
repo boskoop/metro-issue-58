@@ -3,8 +3,8 @@ package ch.xog.jaxws;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
-import javax.xml.ws.Service;
-import javax.xml.ws.handler.soap.SOAPMessageContext;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.handler.soap.SOAPMessageContext;
 
 import org.junit.BeforeClass;
 import org.junit.Rule;
