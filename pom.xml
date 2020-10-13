@@ -74,9 +74,9 @@
 			<version>3.0.0-M4</version>
 		</dependency>
 		<dependency>
-			<groupId>jakarta.ws.rs</groupId>
-			<artifactId>jakarta.ws.rs-api</artifactId>
-			<version>3.0.0-M1</version>
+			<groupId>jakarta.xml.ws</groupId>
+			<artifactId>jakarta.xml.ws-api</artifactId>
+			<version>3.0.0-RC3</version>
 		</dependency>
 
 		<!-- test dependencies -->
